@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slides Img</title>
+    <link rel="stylesheet" href="./makeup.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container-slider">
+            <div class="slider-item fade">
+                <img id="imgCurrent" src="" alt="">
+            </div>
+        </div>
+            <div class="prev" onclick="SelectedImg(-1)"><</div>
+            <div class="next" onclick="SelectedImg(1)">></div>
+        </div>
+        <div class="container-descript" style="text-align: center;">
+            <p><strong>Photo by - </strong><span id="photographer-name" class="photographer-name">Aaron Burder</span></p>
+            <p>Location - <span id="location-name" class="location-name"></span>. <a id="link-descript" target="_blank" >Link</a></p>
+        </div>
+        <br/>
+        <div id="container-dot" style="text-align: center;">
+        </div>
+        <div id="container-thumnail"></div>
+    </div>
+    <script src="./action.js"></script>
+</body>
+</html>

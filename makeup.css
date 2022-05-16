@@ -1,0 +1,113 @@
+* {box-sizing:border-box}
+body{
+    background-color: black;
+}
+
+.container-slider{
+    text-align: center;
+    position: relative;
+    margin: auto;
+    background: black;
+}
+.slider-item img{
+    width: 100%;
+    max-height: 520px ;
+}
+
+.next, .prev {
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    width: auto;
+    /* margin-top: -62px; */
+    color: #bbb;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px rgb(0, 0, 0) solid;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    padding: 16px;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.6;
+}
+
+.next {
+    right: 0;
+    margin-right: 5px;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover  {
+    background-color: rgb(0, 0, 0);
+    opacity: 1;
+}
+
+.dot{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color:#bbb;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    margin: 2px;
+}
+
+.active-dot,.dot:hover {
+    background-color: #6f6d6d;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.thumnail-item {
+    /* display: inline-block; */
+    width: 10%;
+    height: auto;
+    margin: 5px 2px;
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    transition: background-color 0.6s ease ;
+    opacity: 0.5;
+}
+.active-thumnail-item, .thumnail-item:hover{
+    border: 1px solid red;
+    opacity: 1;
+}
+
+.container-descript{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-descript a{
+    color: white;
+}
+
+.photographer-name{
+    text-decoration: underline;
+    font-weight: bolder;
+}
+.location-name{
+    text-decoration: underline;
+}
+
+#container-thumnail{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+@keyframes fade {
+    from { opacity: .4}
+    to {opacity: 1}
+}
+
+@media only screen and (max-width: 767px) {
+    .next, .prev{
+        padding: 10px;
+    }
+}
