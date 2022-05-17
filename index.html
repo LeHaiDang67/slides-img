@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slides Img</title>
     <link rel="stylesheet" href="./makeup.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 </head>
 <body>
-    <div class="main">
+    <div class="header">
         <div class="container-slider">
             <div class="slider-item fade">
                 <img id="imgCurrent" src="" alt="">
@@ -25,7 +27,38 @@
         <div id="container-dot" style="text-align: center;">
         </div>
         <div id="container-thumnail"></div>
+        <div class="container-table" id="container-table">
+        </div>
+        <div class="box-pagination">
+            <div id="container-pagination">
+            </div>
+            <select class="select-pageNumber" id="rowsPerPage" onchange="ChangeRowsPerPage()">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+        </div>
     </div>
+    <script id="small-template" type="text/x-handlebars-template">
+        <table>
+            <thead>
+                <th>Thumnail</th>
+                <th>Author</th>
+                <th>Gallery</th>
+            </thead>
+            <tbody>
+                {{#each big_data}}
+                    <tr>
+                        <td><img style="max-width: 100px;" src="{{thumbnailUrl}}" alt=""></td>
+                        <td>{{title}}</td>
+                        <td><span class="show-gallery" onclick="">Id: {{albumId}}</span></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
     <script src="./action.js"></script>
+    
 </body>
 </html>
