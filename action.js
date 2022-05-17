@@ -140,7 +140,9 @@ function RefreshPagi(){
 
 function ChangeRowsPerPage(){
     let selectedItem = document.getElementById('rowsPerPage');
-    rowPerPage = selectedItem.value;
+    rowPerPage = parseInt(selectedItem.value);
+    currentIndexPage = 1;
+    console.log(rowPerPage)
     HandlerBarFuc();
     CreatePagination(); 
 }
@@ -186,9 +188,11 @@ function HanlerPagiSlider(arr, item_per_page, current_page){
 }
 
 function HandlerBarFuc(){
+    document.getElementById("container-table").innerHTML = '';
     let source = document.getElementById('small-template').innerHTML;
     let template = Handlebars.compile(source);
-    let render = template({big_data: HanlerPagiSlider(bigData, rowPerPage, currentIndexPage)});
+    let arrCurrent = HanlerPagiSlider(bigData, rowPerPage, currentIndexPage);
+    let render = template({big_data: arrCurrent});
     $("#container-table").html(render);
     
 }
