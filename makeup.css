@@ -63,15 +63,18 @@
     animation-duration: 1.5s;
 }
 
+
 .thumnail-item {
     /* display: inline-block; */
     width: 10%;
     height: auto;
-    margin: 5px 2px;
+    margin: 10px 2px;
     border-radius: 5px;
     border: 1px solid whitesmoke;
     transition: background-color 0.6s ease ;
     opacity: 0.5;
+    cursor: pointer;
+    user-select: none;
 }
 .active-thumnail-item, .thumnail-item:hover{
     border: 1px solid red;
@@ -102,8 +105,9 @@
 
 #container-thumnail{
     overflow-x: scroll;
-    overflow-y: hidden;
+    overflow: hidden;
     white-space: nowrap;
+    float:left;
 }
 
 table{

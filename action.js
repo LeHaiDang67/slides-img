@@ -4,6 +4,8 @@ let userList = [];
 let bigData = [];
 let currentIndexPage = 1;
 let rowPerPage = 5;
+let isMouseDown = false;
+let startX, scrollLeft;
 
 async function FetchData(){
     const response = await  fetch('https://jsonplaceholder.typicode.com/albums/1/photos')
@@ -99,6 +101,28 @@ function CreateThumnails(num){
     for (let index = 0; index < numberThumnail.length; index++) {
         numberThumnail[index].addEventListener('click', function() { CurrentImg(index + 1)});
     }
+    
+    // handle drag carousel
+    containerThumnail.addEventListener('mousemove', function(e){
+        e.preventDefault();
+        if(!isMouseDown){return;}
+        const x = e.pageX - containerThumnail.offsetLeft;
+        const scroll = x - startX;
+        containerThumnail.scrollLeft = scrollLeft - scroll;
+    })
+    containerThumnail.addEventListener('mousedown', startDrag);
+    containerThumnail.addEventListener('mouseup', endDrag);
+}
+
+function startDrag (e){
+    let containerThumnail = document.getElementById('container-thumnail');
+    isMouseDown = true;
+    startX = e.pageX - containerThumnail.offsetLeft;
+    scrollLeft = containerThumnail.scrollLeft;
+}
+
+function endDrag (e){
+    isMouseDown = false;
 }
 
 function ShowCurrentPage(index){
